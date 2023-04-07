@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Expense Tracker</title>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
 
@@ -17,5 +17,48 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body></body>
+  <body>
+    <main>
+      <h4>Expense Tracker</h2>
+      <div class="balance">
+        <p>YOUR BALANCE</p>
+        <div id="balance">$150.00</div>
+      </div>
+      <div class="inEx">
+        <div class="income">
+          <p>INCOME</p>
+          <div id="income">$300.00</div>
+        </div>
+        <div class="spacer"></div>
+        <div class="expense">
+          <p>EXPENSE</p>
+          <div id="expense">$150.00</div>
+        </div>
+      </div>
+      <div class="history">
+        <p class="row">History</p>
+        <div class="row" id="negative">
+          <p class="title" id="title">camera</p>
+          <p class="quantity" id="">-100</p>
+        </div>
+        <div class="row" id="positive">
+          <p class="title" id="title">cash</p>
+          <p class="quantity" id="">+300</p>
+        </div>
+        <div class="row" id="negative">
+          <p class="title" id="title">book</p>
+          <p class="quantity" id="">-50</p>
+        </div>
+      </div>
+      <div class="new">
+        <p class="row">Add new transaction</p>
+        <p>Text</p>
+        <input type="text" name="new_item" placeholder="Enter text..." id="new_item" />
+        <p>Amount</p>
+        <p>(negative-expense,positive-income)</p>
+        <input type="number" name="amount" placeholder="Enter Amount..." id="amount" />
+        <button>Add transaction</button>
+      </div>
+    </main>
+  </body>
 </html>
