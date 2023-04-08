@@ -1,7 +1,8 @@
 const balance = document.getElementById("balance");
 const income = document.getElementById("income");
 const expense = document.getElementById("expense");
-const history = document.querySelector(".history");
+const history = document.getElementById("history");
+const items = [];
 
 class Item {
   constructor(title, amount, sign) {
@@ -9,13 +10,18 @@ class Item {
     this.amount = amount;
     this.sign = sign;
   }
+  rowCreator() {
+    const row = document.createElement("div");
+    row.className = "row " + this.sign;
+    row.innerHTML = `<span class="close" onclick="deleteItem(this)">X</span><div><p>${this.title}</p><p class="cost">${this.amount}</p></div>`;
+    return row;
+  }
 }
-
-const items = [];
 
 function deleteItem(element) {
   const parent = element.parentNode;
   parent.remove();
+  calculationsUpdate();
 }
 
 function addNew() {
@@ -31,7 +37,29 @@ function addNew() {
   }
   const newItem = new Item(title, amount, sign);
   items.push(newItem);
-  console.log(items);
+  const row = newItem.rowCreator();
+  history.appendChild(row);
+  calculationsUpdate();
 }
 
-function historyShow() {}
+function calculationsUpdate() {
+  const cost = document.getElementsByClassName("cost");
+  let total_income = 0;
+  let total_expense = 0;
+  let total_balance = 0;
+  const costs = [];
+  for (let i = 0; i < cost.length; i++) {
+    costs.push(Number(cost[i].innerText));
+  }
+  costs.forEach((amount) => {
+    total_balance += amount;
+    if (amount > 0) {
+      total_income += amount;
+    } else {
+      total_expense += amount;
+    }
+  });
+  balance.innerText = `$${total_balance.toFixed(2)}`;
+  income.innerText = `$${total_income.toFixed(2)}`;
+  expense.innerText = `$${total_expense.toFixed(2)}`;
+}
