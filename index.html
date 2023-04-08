@@ -15,27 +15,27 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body onload="calculationsUpdate()">
   <main>
     <h4>Expense Tracker</h2>
       <div class="balance">
         <p>YOUR BALANCE</p>
-        <div id="balance">$150.00</div>
+        <div id="balance">$000.00</div>
       </div>
       <div class="inEx">
         <div class="income">
           <p>INCOME</p>
-          <div id="income">$300.00</div>
+          <div id="income">$000.00</div>
         </div>
         <div class="spacer"></div>
         <div class="expense">
           <p>EXPENSE</p>
-          <div id="expense">$150.00</div>
+          <div id="expense">$000.00</div>
         </div>
       </div>
-      <div class="history" id="history">
-        <p class="row">History</p>
-        <div class="row negative">
+      <div id="history">
+        <p class="history">History</p>
+        <!-- <div class="row negative">
           <span class="close" onclick="deleteItem(this)">X</span>
           <div>
             <p>camera</p>
@@ -55,16 +55,18 @@
             <p>book</p>
             <p class="cost">-50</p>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="new">
-        <p class="row">Add new transaction</p>
+        <p class="History">Add new transaction</p>
         <p>Text</p>
+
         <input type="text" name="new_item" placeholder="Enter text..." id="new_item" />
         <p>Amount</p>
         <p>(negative-expense,positive-income)</p>
         <input type="number" name="amount" placeholder="Enter Amount..." id="amount" />
         <button onclick="addNew()">Add transaction</button>
+
       </div>
   </main>
 </body>

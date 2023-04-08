@@ -2,7 +2,8 @@ const balance = document.getElementById("balance");
 const income = document.getElementById("income");
 const expense = document.getElementById("expense");
 const history = document.getElementById("history");
-const items = [];
+const new_item = document.getElementById("new_item");
+const new_amount = document.getElementById("amount");
 
 class Item {
   constructor(title, amount, sign) {
@@ -10,6 +11,7 @@ class Item {
     this.amount = amount;
     this.sign = sign;
   }
+
   rowCreator() {
     const row = document.createElement("div");
     row.className = "row " + this.sign;
@@ -21,12 +23,15 @@ class Item {
 function deleteItem(element) {
   const parent = element.parentNode;
   parent.remove();
+  storageUpdate();
   calculationsUpdate();
 }
 
 function addNew() {
-  const title = document.getElementById("new_item").value;
-  const amount = document.getElementById("amount").value;
+  const title = new_item.value;
+  new_item.value = "";
+  const amount = new_amount.value;
+  new_amount.value = null;
   let sign = "";
   if (amount == 0) {
     alert("please enter correct value");
@@ -36,13 +41,19 @@ function addNew() {
     sign = "negative";
   }
   const newItem = new Item(title, amount, sign);
-  items.push(newItem);
   const row = newItem.rowCreator();
   history.appendChild(row);
+  storageUpdate();
   calculationsUpdate();
 }
 
+function storageUpdate() {
+  const inner = history.innerHTML;
+  localStorage.setItem("inner", JSON.stringify(inner));
+}
+
 function calculationsUpdate() {
+  history.innerHTML = JSON.parse(localStorage.getItem("inner"));
   const cost = document.getElementsByClassName("cost");
   let total_income = 0;
   let total_expense = 0;
