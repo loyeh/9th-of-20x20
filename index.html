@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Expense Tracker</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
 
-    <!-- font aowesome CDN link -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <body>
-    <main>
-      <h4>Expense Tracker</h2>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+
+  <!-- font aowesome CDN link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <main>
+    <h4>Expense Tracker</h2>
       <div class="balance">
         <p>YOUR BALANCE</p>
         <div id="balance">$150.00</div>
@@ -37,17 +35,26 @@
       </div>
       <div class="history">
         <p class="row">History</p>
-        <div class="row" id="negative">
-          <p class="title" id="title">camera</p>
-          <p class="quantity" id="">-100</p>
+        <div class="row negative">
+          <span class="close" onclick="deleteItem(this)">X</span>
+          <div>
+            <p>camera</p>
+            <p>-100</p>
+          </div>
         </div>
-        <div class="row" id="positive">
-          <p class="title" id="title">cash</p>
-          <p class="quantity" id="">+300</p>
+        <div class="row positive">
+          <span class="close" onclick="deleteItem(this)">X</span>
+          <div>
+            <p>cash</p>
+            <p>+300</p>
+          </div>
         </div>
-        <div class="row" id="negative">
-          <p class="title" id="title">book</p>
-          <p class="quantity" id="">-50</p>
+        <div class="row negative">
+          <span class="close" onclick="deleteItem(this)">X</span>
+          <div>
+            <p>book</p>
+            <p>-50</p>
+          </div>
         </div>
       </div>
       <div class="new">
@@ -57,8 +64,9 @@
         <p>Amount</p>
         <p>(negative-expense,positive-income)</p>
         <input type="number" name="amount" placeholder="Enter Amount..." id="amount" />
-        <button>Add transaction</button>
+        <button onclick="addNew()">Add transaction</button>
       </div>
-    </main>
-  </body>
+  </main>
+</body>
+
 </html>
