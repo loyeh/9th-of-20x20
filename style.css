@@ -6,14 +6,13 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   height: 100vh;
-  background-color: brown;
+  background-color: #eeeeee;
 }
 main {
   width: 340px;
-  background-color: #eeeeee;
   padding-inline: 40px;
 }
 h4 {
@@ -21,9 +20,7 @@ h4 {
   margin: 25px;
   white-space: nowrap;
 }
-.balance {
-  /* margin-block: 20px; */
-}
+
 p {
   font-size: 12px;
   font-weight: bold;
